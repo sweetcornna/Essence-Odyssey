@@ -23,6 +23,7 @@ CurseForge 项目页：<https://www.curseforge.com/minecraft/modpacks/essence-od
 这个仓库是整合包的**开发实例** —— 开发中的内容会直接出现在这里；**稳定版请到 CurseForge 下载**（上面的勋章就是入口）。
 
 想跑最新的开发构建版、或想参与开发，看 **[`同步说明.md`](同步说明.md)**：clone 到本地 → 双击 `sync-and-play.bat` 自动补齐模组与配置。dev 版是**未发布**内容：可能有 bug，也不保证存档兼容。
+
 ## 故事线
 
 <!-- INTRO:STORY:BEGIN -->
@@ -82,7 +83,14 @@ AE2 从游戏早期就融入进度，而非后期解锁。
 
 ## 仓库内容
 
-只收录作者**手写 / 手改**的内容——KubeJS 脚本与补充汉化、模组配置、MBD2 多方块与配方定义、自制贴图与模型。**不包含任何模组本体**（`mods/` 已在 `.gitignore` 中排除），游玩请通过 CurseForge 获取整合包。
+只收录作者**手写 / 手改**的内容——KubeJS 脚本与补充汉化、模组配置、MBD2 多方块与配方定义、自制贴图与模型，以及 packwiz 清单（`pack.toml`、`index.toml`、`mods/*.pw.toml`）。**不包含任何模组本体**：清单里只记每个模组在 CurseForge 上的项目号、文件号和哈希，jar 由 `packwiz-installer` 按清单下载（`mods/*.jar` 已在 `.gitignore` 中排除）。游玩请通过 CurseForge 获取整合包。
+
+| 目录 | 内容 |
+|---|---|
+| `kubejs/` | 脚本（启动 / 服务端 / 客户端）、自制物品与方块的贴图模型、汉化、数据包 |
+| `config/`、`defaultconfigs/`、`ldlib2/` | 模组配置、默认配置、MBD2 多方块定义 |
+| `mods/*.pw.toml` | 模组清单（不含 jar） |
+| `tools/`、`tests/`、`.github/` | 开发检查脚本与 CI，不随游戏分发 |
 
 ## 授权｜License
 

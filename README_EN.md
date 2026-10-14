@@ -23,6 +23,7 @@ CurseForge page: <https://www.curseforge.com/minecraft/modpacks/essence-odyssey>
 This repository is the pack's **development instance** — work in progress lands here directly; **for the stable release, use CurseForge** (badge above).
 
 To run the latest development build or to contribute, see **[`同步说明.md`](同步说明.md)** (Chinese walkthrough): clone the repo, then run `sync-and-play.bat` to fetch every mod and config file. Development builds are **unreleased** content: they may break, and save compatibility is not guaranteed.
+
 ## Story
 
 <!-- INTRO:STORY:BEGIN -->
@@ -82,7 +83,14 @@ If you run into problems while playing, feedback is welcome via [Issues](https:/
 
 ## Repository Contents
 
-Only hand-written / hand-edited content is tracked here — KubeJS scripts and supplementary localization, mod configs, MBD2 multiblock and recipe definitions, original textures and models. **No mod jars are distributed in this repository** (`mods/` is excluded via `.gitignore`); please install the pack through CurseForge.
+Only hand-written / hand-edited content is tracked here — KubeJS scripts and supplementary localization, mod configs, MBD2 multiblock and recipe definitions, original textures and models, plus the packwiz manifest (`pack.toml`, `index.toml`, `mods/*.pw.toml`). **No mod jars are distributed in this repository**: the manifest records each mod's CurseForge project ID, file ID and hash, and `packwiz-installer` downloads the jars (`mods/*.jar` is excluded via `.gitignore`). To play, install the pack through CurseForge.
+
+| Folder | Contents |
+|---|---|
+| `kubejs/` | Startup, server and client scripts; textures and models for the pack's own items and blocks; localization; datapack |
+| `config/`, `defaultconfigs/`, `ldlib2/` | Mod configs, default configs, MBD2 multiblock definitions |
+| `mods/*.pw.toml` | Mod manifest (no jars) |
+| `tools/`, `tests/`, `.github/` | Development checks and CI; not shipped with the game |
 
 ## License
 
@@ -90,6 +98,6 @@ Only hand-written / hand-edited content is tracked here — KubeJS scripts and s
 |---|---|
 | The modpack and everything under `config/`, `defaultconfigs/`, `data/`, `ldlib2/`, `kubejs/` | [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) |
 | Original `.js` scripts under `kubejs/` | [MIT](kubejs/LICENSE) |
-| Third-party content (mods, community translations, adapted textures) | Their own licenses — see [THIRD-PARTY.md](THIRD-PARTY.md) |
+| Third-party content (mods, community translations, other people's assets) | Their own licenses — see [THIRD-PARTY.md](THIRD-PARTY.md) |
 
 If you repost or adapt this pack, credit "Essence Odyssey by hydrogenfluoride233", link the license, and state whether you made changes; commercial use is not allowed, and adaptations must be released under the same license. Full text: [LICENSE](LICENSE).

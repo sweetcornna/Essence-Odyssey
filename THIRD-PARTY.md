@@ -33,15 +33,17 @@
 |---|---|---|---|
 | `kubejs/assets/kubejs/textures/**`、`kubejs/assets/kubejs/models/**` | 本整合包作者原创 | CC BY-NC-SA 4.0 | — |
 
+- 2026-10-14 按原版风格再次整体重绘：描边取材质自身的暗色（左上亮、右下暗），每张 4–9 色，方块用亮度接近的平滑色阶。倍矿中间物、充能水晶粉、精华水晶与方块、符文、印记、仪式假人、科技元件、祭坛、灌注部件和陨石星辉金属矿石均为逐像素新画。
 - 2026-10-13 全部重绘：符文、倍矿中间物（晶体 / 碎块 / 碎片 / 污浊粉 / 粉）、板材、强化水晶粉、维度预测、无限熔岩元件、精华水晶与方块、元件、印记、仪式假人，以及祭坛、灌注部件的方块模型与贴图，均为逐像素原创。此前登记的 Botania 符文、Mekanism 基材质改编，以及 NeoVitae、HNN、AE2、Modular Machinery 的参考改编素材已全部替换。**星辉魔法（All Rights Reserved）的祭坛模型、大理石、星辉矿等临时占位也已移除**，仓库不再包含星辉魔法素材。
-- 为了和对应模组的物品放在一起时协调，部分贴图的配色参照了原模组物品的颜色（如机械动力的锌、石灰岩、熔渣岩，神秘主义的铱，沉浸工程的镍、铝，通用机械的锇、锡，新生魔艺的源石，AE2 的陨石），外形也沿用了原模组的物品类型（如 Mekanism 的倍矿中间物、HNN 的维度预测、ExtendedAE 的无限元件）。这些贴图不含原模组的像素。
+- 为了和对应模组的物品放在一起时协调，部分贴图的配色参照了原模组物品的颜色（如机械动力的锌、石灰岩、熔渣岩，神秘主义的铱，沉浸工程的镍、铝，通用机械的锇、锡，新生魔艺的源石，AE2 的陨石），外形也沿用了原模组的物品类型（如 Mekanism 的倍矿中间物、机械动力的粉碎矿石与板材、HNN 的维度预测、ExtendedAE 的无限元件、AE2 的等距处理器、神秘主义的仪式假人、自然灵气的印记、命血术的铭文工具、暮色森林的锭）。这些贴图不含原模组的像素。
 - `kubejs:block/imbuement_chamber` 的顶、底面在运行时直接引用新生魔艺自带的 `ars_nouveau:block/smooth_sourcestone_large_bricks`，本仓库不分发该贴图。
 
 **致谢**
 
 > 本整合包的自定义贴图为作者原创。为了和下列模组的物品搭配，部分配色与物品外形参照了它们，特此致谢：
 > 机械动力 Create、神秘主义 Occultism、沉浸工程 Immersive Engineering、通用机械 Mekanism、
-> 新生魔艺 Ars Nouveau、应用能源 AE2、ExtendedAE、敌对神经网络 Hostile Neural Networks、Actually Additions。
+> 新生魔艺 Ars Nouveau、应用能源 AE2、ExtendedAE、敌对神经网络 Hostile Neural Networks、Actually Additions、
+> 自然灵气 Nature's Aura、命血术 Neo Vitae、暮色森林 The Twilight Forest。
 
 ---
 
