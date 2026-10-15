@@ -21,13 +21,10 @@ StartupEvents.registry("block",event=>{
         ["altar_3","pickaxe","stone","stone",3,3],
         ["sky_stone_starmetal_ore","pickaxe","diamond","stone",5,5]
     ]
-    //祭坛模型不是整格方块：去掉实心属性，碰撞箱贴合底座、立柱和台面（单位：像素）
+    //祭坛模型不是整格方块：去掉实心属性，碰撞箱贴合底座、立柱和台面（单位：像素）；悬浮的星轨环不算碰撞
     //格式:[起点x,起点y,起点z,终点x,终点y,终点z]
-    const shapes = {
-        altar_1: [[1,0,1,15,3,15],[2,3,2,14,4,14],[4,4,4,12,11,12],[2,11,2,14,12,14],[0,12,0,16,16,16]],
-        altar_2: [[0,0,0,16,2,16],[1,2,1,15,4,15],[4,4,4,12,10,12],[2,10,2,14,11,14],[0,11,0,16,16,16]],
-        altar_3: [[0,0,0,16,2,16],[1,2,1,15,3,15],[1,3,1,15,10,15],[1,10,1,15,11,15],[0,11,0,16,16,16]]
-    }
+    const altarShape = [[1,0,1,15,2,15],[4,2,4,12,3,12],[5,3,5,11,12,11],[3,12,3,13,13,13],[2,13,2,14,16,14]]
+    const shapes = { altar_1: altarShape, altar_2: altarShape, altar_3: altarShape }
     //祭坛的星光嵌饰会发光：亮度 6 / 8 / 10（lightLevel 取 0~1，乘 15 后取整）
     const glow = { altar_1: 0.42, altar_2: 0.56, altar_3: 0.69 }
 
@@ -43,6 +40,13 @@ StartupEvents.registry("block",event=>{
             builder.notSolid().opaque(false).fullBlock(false).viewBlocking(false).suffocating(false).redstoneConductor(false)
             shapes[id].forEach(([x0,y0,z0,x1,y1,z1])=>builder.box(x0,y0,z0,x1,y1,z1))
         }
-        if (glow[id]) builder.lightLevel(glow[id])
+        if (glow[id]) {
+            builder.lightLevel(glow[id])
+            //只在客户端每 2 tick 跑一次，用来放祭坛粒子特效（client_scripts/essenceodyssey/altar_fx.js）
+            builder.blockEntity(be => {
+                be.clientTicking()
+                be.tickFrequency(2)
+            })
+        }
     })
 })
