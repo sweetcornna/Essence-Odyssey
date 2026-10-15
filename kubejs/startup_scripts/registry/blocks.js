@@ -28,6 +28,8 @@ StartupEvents.registry("block",event=>{
         altar_2: [[0,0,0,16,2,16],[1,2,1,15,4,15],[4,4,4,12,10,12],[2,10,2,14,11,14],[0,11,0,16,16,16]],
         altar_3: [[0,0,0,16,2,16],[1,2,1,15,3,15],[1,3,1,15,10,15],[1,10,1,15,11,15],[0,11,0,16,16,16]]
     }
+    //祭坛的星光嵌饰会发光：亮度 6 / 8 / 10（lightLevel 取 0~1，乘 15 后取整）
+    const glow = { altar_1: 0.42, altar_2: 0.56, altar_3: 0.69 }
 
     block.forEach(([id,type,level,sound,hardness,resistance])=>{
         let builder = event.create(id)
@@ -41,5 +43,6 @@ StartupEvents.registry("block",event=>{
             builder.notSolid().opaque(false).fullBlock(false).viewBlocking(false).suffocating(false).redstoneConductor(false)
             shapes[id].forEach(([x0,y0,z0,x1,y1,z1])=>builder.box(x0,y0,z0,x1,y1,z1))
         }
+        if (glow[id]) builder.lightLevel(glow[id])
     })
 })
